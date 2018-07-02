@@ -5,6 +5,12 @@ import json
 from influxdb import InfluxDBClient
 from influxdb.client import InfluxDBClientError
 
+class queries:
+	def __init__(self, query, db, name):
+		self.query = query
+		self.db = db
+		self.name = name
+		
 ### enter your influxdb info here server,port,user,password and if you dont use SSL you can change ssl=True to SSL=False
 influx = InfluxDBClient('hostname/ipaddr', 8086, 'user', 'pass', ssl=True)
 
@@ -31,12 +37,6 @@ m = hashlib.md5()
 m.update(password)
 
 data = []
-
-class queries:
-	def __init__(self, query, db, name):
-		self.query = query
-		self.db = db
-		self.name = name
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

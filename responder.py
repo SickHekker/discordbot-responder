@@ -73,5 +73,5 @@ try:
 			conn.send(json_data)
 		conn.close()
 		
-except ():
+except:
 	s.close()

@@ -7,6 +7,19 @@ from influxdb.client import InfluxDBClientError
 
 ### enter your influxdb info here server,port,user,password and if you dont use SSL you can change ssl=True to SSL=False
 influx = InfluxDBClient('hostname/ipaddr', 8086, 'user', 'pass', ssl=True)
+
+# use a query that only outputs the last value!!
+# example:
+# SELECT "valuename" FROM "measurement" ORDER BY DESC LIMIT 1
+# the values are query,database,dataname
+# every thing should have a different dataname so it can be processed properly, you will also need to enter the dataname in the bot later on.
+# to add another query simply copy one of the existing queries under this change the number to one that is not used (query3 query4 and etc) and add it to the querylist
+# if a query doesnt work or if the query is empty the code will fail
+query1 = queries('query', "db", "name")
+query2 = queries('query', "db", "name")
+query3 = queries('query', "db", "name")
+querylist = [query1,query2,query3]
+
 ### enter the secret that the bot will use to connect here, in the bot you will need to enter the md5 hash of it in the bot
 password = 'password'
 
@@ -24,18 +37,6 @@ class queries:
 		self.query = query
 		self.db = db
 		self.name = name
-
-# use a query that only outputs the last value!!
-# example:
-# SELECT "valuename" FROM "measurement" ORDER BY DESC LIMIT 1
-# the values are query,database,dataname
-# every thing should have a different dataname so it can be processed properly, you will also need to enter the dataname in the bot later on.
-# to add another query simply copy one of the existing queries under this change the number to one that is not used (query3 query4 and etc) and add it to the querylist
-# if a query doesnt work or if the query is empty the code will fail
-query1 = queries('query', "db", "name")
-query2 = queries('query', "db", "name")
-query3 = queries('query', "db", "name")
-querylist = [query1,query2,query3]
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

@@ -45,8 +45,7 @@ remove your responders stored in the bot
 remove your showbinds stored in the bot  
 %removeshowbinds	
 	
-display data
-
+display data  
 %show showname
 
 

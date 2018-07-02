@@ -63,6 +63,8 @@ remove your showbinds stored in the bot
 
 %removeshowbinds	
 	
+display data
+
 %show showname
 
 

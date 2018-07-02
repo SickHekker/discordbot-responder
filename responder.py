@@ -1,6 +1,7 @@
 import socket
 import hashlib
 import json
+import ssl
 
 from influxdb import InfluxDBClient
 from influxdb.client import InfluxDBClientError
@@ -10,9 +11,14 @@ class queries:
 		self.query = query
 		self.db = db
 		self.name = name
-		
+
 ### enter your influxdb info here server,port,user,password and if you dont use SSL you can change ssl=True to SSL=False
 influx = InfluxDBClient('hostname/ipaddr', 8086, 'user', 'pass', ssl=True)
+### enter the secret that the bot will use to connect here, in the bot you will need to enter the md5 hash of it in the bot
+password = 'password'
+
+KEYFILE = 'key.pem'
+CERTFILE = 'cert.pem'
 
 # use a query that only outputs the last value!!
 # example:
@@ -26,9 +32,6 @@ query2 = queries('query', "db", "name")
 query3 = queries('query', "db", "name")
 querylist = [query1,query2,query3]
 
-### enter the secret that the bot will use to connect here, in the bot you will need to enter the md5 hash of it in the bot
-password = 'password'
-
 TCP_IP = '0.0.0.0'
 TCP_PORT = 5102
 BUFFER_SIZE = 1024
@@ -37,15 +40,15 @@ m = hashlib.md5()
 m.update(password)
 
 data = []
-
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind((TCP_IP, TCP_PORT))
 s.listen(1)
+s_ssl = ssl.wrap_socket(s, keyfile=KEYFILE, certfile=CERTFILE, server_side=True)
 
 try:
 	while True:
-		conn, addr = s.accept()
+		conn, addr = s_ssl.accept()
 		print('Connection address:', addr)
 		while 1:
 			passhash = conn.recv(BUFFER_SIZE)

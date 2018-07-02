@@ -1,0 +1,12 @@
+[Unit]
+Description=responder for discordbot
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /opt/responder/responder.py
+WorkingDirectory=/opt/responder/
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=sysinit.target

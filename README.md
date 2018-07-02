@@ -30,7 +30,7 @@ you could also use ddns, the bot does also work with dns names instead of ip add
 In discord, send %help, you will get a list of commands in your pm, info for each command can be found by sending %help commandname  
 descriptions on commands is still work in progress
 
-add your responder  
+add your responder, name it something easy, responder address can also be a dns name.
 %setresponder respondername responderaddress responderMD5passhash	
 
 set a bind for the dataname, dataname is the name you gave the data in the responder.py, showname is what you will put after %show to get the data (postfix is like celsius or % for humidity)  

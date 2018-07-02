@@ -39,7 +39,7 @@ portforward port 5102 to the host
 you could also use ddns, the bot does also work with dns names instead of ip address
 
 # bot
-%setinfo respondername infoname dataname postfix
+%setshow respondername infoname dataname postfix
 
 (postfix is like celsius or % for humidity)
 

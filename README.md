@@ -39,16 +39,6 @@ portforward port 5102 to the host
 you could also use ddns, the bot does also work with dns names instead of ip address
 
 # bot
-%setshow respondername infoname dataname postfix
+In discord, send %help, you will get a list of commands in your pm, info for each command can be found by sending %help commandname
 
-(postfix is like celsius or % for humidity)
-
-%setresponder respondername responderaddress responderMD5passhash
-
-%removeall
-
-%removeresponders
-
-%removeinfonames
-
-%show infoname
+descriptions on commands is still work in progress

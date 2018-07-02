@@ -44,4 +44,4 @@ you could also use ddns, the bot does also work with dns names instead of ip add
 
 %removeinfonames
 
-%show <infoname>
+%show infoname

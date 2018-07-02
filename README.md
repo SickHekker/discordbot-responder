@@ -19,6 +19,13 @@ mkdir /opt/responder
 
 mv responder.py /opt/responder
 
+mv cert.pem /opt/responder
+
+mv key.pem /opt/responder
+
+i recommend creating your own self signed certificates.
+
+
 open /opt/responder/responder.py with your favorite editor and change the password, enter your influxdb info.
 
 mv responder.service /etc/systemd/system

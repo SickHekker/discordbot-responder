@@ -34,7 +34,7 @@ add your responder, name it something easy, responder address can also be a dns 
 %add responder [respondername] [responderaddress] [password]	
 
 set a bind for the dataname, dataname is the name you gave the data in the responder.py, showname is what you will put after %show to get the data (postfix is like celsius or % for humidity)  
-%add bind [respondername [dataname] [valuename] [postfix]		
+%add bind [respondername] [dataname] [valuename] [postfix]		
 	
 remove ALL info stored in the bot  
 %remove all	

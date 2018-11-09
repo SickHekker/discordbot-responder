@@ -31,25 +31,25 @@ In discord, send %help, you will get a list of commands in your pm, info for eac
 descriptions on commands is still work in progress
 
 add your responder, name it something easy, responder address can also be a dns name.  
-%setresponder respondername responderaddress responderMD5passhash	
+%add responder [respondername] [responderaddress] [password]	
 
 set a bind for the dataname, dataname is the name you gave the data in the responder.py, showname is what you will put after %show to get the data (postfix is like celsius or % for humidity)  
-%setshowbind respondername showname dataname postfix		
+%add bind [respondername [dataname] [valuename] [postfix]		
 	
 remove ALL info stored in the bot  
-%removeall	
+%remove all	
 
-remove your responders stored in the bot  
-%removeresponders
+remove all your responders stored in the bot  
+%remove responders
 
-remove your showbinds stored in the bot  
-%removeshowbinds	
+remove all your showbinds stored in the bot  
+%remove binds
 	
 display data  
-%show showname
+%show [dataname]
 
 
 example:  
-%setresponder homeresponder hostname.com d0763edaa9d9bd2a9516280e9044d885  
-%setshowbind homeresponder outdoortemperature outtemp Celsius  
+%add responder homeresponder hostname.com 123banana  
+%add bind homeresponder outdoortemperature outtemp Celsius  
 %show outdoortemperature
